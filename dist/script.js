@@ -69,13 +69,11 @@ const stepTroughcell = (row, column) => {
   grid[row][column] = true;
 
   const neighbors = shuffle([
-    [row - 1, column],
-    [row, column - 1],
-    [row, column + 1],
-    [row + 1, column]
+    [row - 1, column, "up"],
+    [row, column - 1, "left"],
+    [row, column + 1, "right"],
+    [row + 1, column, "bottom"]
   ]);
-
-  console.log(neighbors);
 };
 
 stepTroughcell(1, 1);
