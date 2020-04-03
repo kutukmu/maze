@@ -74,6 +74,23 @@ const stepTroughcell = (row, column) => {
     [row, column + 1, "right"],
     [row + 1, column, "bottom"]
   ]);
+
+  for (let neighbor of neighbors) {
+    const [nextRow, nextColumn, side] = neighbor;
+
+    if (
+      nextRow < 0 ||
+      nextRow >= cells ||
+      nextColumn < 0 ||
+      nextColumn >= cells
+    ) {
+      continue;
+    }
+
+    if (grid[nextRow][nextColumn]) {
+      continue;
+    }
+  }
 };
 
 stepTroughcell(1, 1);
