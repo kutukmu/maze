@@ -76,7 +76,7 @@ const stepTroughcell = (row, column) => {
   ]);
 
   for (let neighbor of neighbors) {
-    const [nextRow, nextColumn, side] = neighbor;
+    const [nextRow, nextColumn, direction] = neighbor;
 
     if (
       nextRow < 0 ||
@@ -89,6 +89,12 @@ const stepTroughcell = (row, column) => {
 
     if (grid[nextRow][nextColumn]) {
       continue;
+    }
+
+    if (direction === "left") {
+      verticals[row][column - 1] = true;
+    } else if (direction === "right") {
+      verticals[row][column] = true;
     }
   }
 };
